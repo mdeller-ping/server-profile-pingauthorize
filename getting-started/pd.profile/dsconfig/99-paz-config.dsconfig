@@ -16,7 +16,7 @@ dsconfig create-external-server \
     --set hostname-verification-method:allow-all  \
     --set "trust-manager-provider:Blind Trust"  \
     --set shared-secret:AABHZ4qkGPerzNMHAyxBn94GTtx7Ztl3drw=  \
-    --set "branch:Default Policies" \
+    --set "branch:defaultPolicies.SNAPSHOT" \
     --no-prompt
 
 dsconfig set-policy-decision-service-prop \
