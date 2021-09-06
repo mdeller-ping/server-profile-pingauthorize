@@ -3,6 +3,12 @@ dsconfig set-trust-manager-provider-prop \
     --set enabled:true \
     --no-prompt
 
+dsconfig create-access-token-validator \
+    --validator-name mock-atv  \
+    --type mock  \
+    --set enabled:true \
+    --no-prompt
+
 dsconfig create-external-server \
     --server-name ${PAZP_ENGINE_PRIVATE_HOSTNAME}  \
     --type policy  \
@@ -12,3 +18,28 @@ dsconfig create-external-server \
     --set shared-secret:AABHZ4qkGPerzNMHAyxBn94GTtx7Ztl3drw=  \
     --set "branch:Default Policies" \
     --no-prompt
+
+dsconfig set-policy-decision-service-prop \
+    --set pdp-mode:external  \
+    --set policy-server:${PAZP_ENGINE_PRIVATE_HOSTNAME}  \
+    --no-prompt
+
+dsconfig set-policy-decision-service-prop \
+    --set trust-framework-version:v2  \
+    --no-prompt
+
+dsconfig create-external-server \
+    --server-name httpbin-http  \
+    --type api  \
+    --set base-url:https://httpbin.org  \
+    --set hostname-verification-method:allow-all  \
+    --set "trust-manager-provider:Blind Trust" \
+    --no-prompt
+
+dsconfig create-gateway-api-endpoint \
+    --endpoint-name httpbin-api  \
+    --set inbound-base-path:/httpbin  \
+    --set outbound-base-path:/  \
+    --set api-server:httpbin-http  \
+    --no-prompt
+
