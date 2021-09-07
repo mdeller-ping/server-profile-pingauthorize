@@ -29,6 +29,23 @@ dsconfig set-policy-decision-service-prop \
     --no-prompt
 
 dsconfig create-external-server \
+    --server-name PingFederate  \
+    --type api  \
+    --set base-url:${PF_ENGINE_PRIVATE_HOSTNAME}:${PF_ENGINE_PRIVATE_PORT_HTTPS}  \
+    --set hostname-verification-method:allow-all  \
+    --set "trust-manager-provider:Blind Trust" \
+    --no-prompt
+
+dsconfig create-access-token-validator \
+    --validator-name PingFederate  \
+    --type ping-federate  \
+    --set subject-claim-name:Username  \
+    --set enabled:true  \
+    --set authorization-server:PingFederate  \
+    --set client-id:pingdirectory  \
+    --set client-secret:AACbbtggFQvDEVpqdiktToMM1Nl7Lkwua1g=
+
+dsconfig create-external-server \
     --server-name httpbin-http  \
     --type api  \
     --set base-url:https://httpbin.org  \
@@ -55,5 +72,6 @@ dsconfig create-gateway-api-endpoint \
     --endpoint-name credit-report-api  \
     --set inbound-base-path:/credit-report  \
     --set outbound-base-path:/api/credit-report  \
+    --set access-token-validator:PingFederate  \
     --set api-server:credit-bureau-http  \
     --no-prompt
