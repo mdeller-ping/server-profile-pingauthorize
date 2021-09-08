@@ -49,12 +49,12 @@ dsconfig set-policy-decision-service-prop \
 
 // PingAccess for Credit Bureau APIs
 
-dsconfig create-external-server \
-    --server-name credit-bureau-http  \
-    --type api  \
-    --set base-url:https://${PA_ENGINE_PUBLIC_HOSTNAME}:${PA_ENGINE_PUBLIC_PORT_HTTPS}  \
-    --set hostname-verification-method:allow-all \
-    --no-prompt
+// dsconfig create-external-server \
+   // --server-name credit-bureau-http  \
+   // --type api  \
+   // --set base-url:https://${PA_ENGINE_PUBLIC_HOSTNAME}:${PA_ENGINE_PUBLIC_PORT_HTTPS}  \
+   // --set hostname-verification-method:allow-all \
+   // --no-prompt
 
 // dsconfig create-gateway-api-endpoint \
    // --endpoint-name credit-report-api  \
