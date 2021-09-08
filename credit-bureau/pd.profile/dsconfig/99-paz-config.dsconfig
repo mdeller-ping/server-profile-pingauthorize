@@ -60,7 +60,7 @@ dsconfig create-gateway-api-endpoint \
     --endpoint-name credit-report-api  \
     --set access-token-validator:PingFederate  \
     --set inbound-base-path:/credit-report  \
-    --set outbound-base-path:/api/credit-report  \
+    --set outbound-base-path:/api/credit-report/?foo=bar  \
     --set api-server:credit-bureau-http  \
     --no-prompt
 
