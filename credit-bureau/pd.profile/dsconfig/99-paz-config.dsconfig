@@ -63,7 +63,7 @@ dsconfig create-gateway-api-endpoint \
 dsconfig create-external-server \
     --server-name credit-bureau-http  \
     --type api  \
-    --set base-url:https://mdeller-authorize-pingaccess-engine.ping-devops.com  \
+    --set base-url:https://httpbin.org  \
     --set hostname-verification-method:allow-all  \
     --set "trust-manager-provider:Blind Trust" \
     --no-prompt
@@ -72,6 +72,5 @@ dsconfig create-gateway-api-endpoint \
     --endpoint-name credit-report-api  \
     --set inbound-base-path:/credit-report  \
     --set outbound-base-path:/api/credit-report  \
-    --set access-token-validator:PingFederate  \
     --set api-server:credit-bureau-http  \
     --no-prompt
