@@ -30,22 +30,22 @@ dsconfig set-policy-decision-service-prop \
 
 // PingFederate for Token Validation
 
-dsconfig create-external-server \
-    --server-name PingFederate  \
-    --type api  \
-    --set base-url:https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}  \
-    --set hostname-verification-method:allow-all \
-    --no-prompt
+// dsconfig create-external-server \
+   // --server-name PingFederate  \
+   // --type api  \
+   // --set base-url:https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}  \
+   // --set hostname-verification-method:allow-all \
+   // --no-prompt
 
-dsconfig create-access-token-validator \
-    --validator-name PingFederate  \
-    --type ping-federate  \
-    --set subject-claim-name:Username  \
-    --set enabled:true  \
-    --set authorization-server:PingFederate  \
-    --set client-id:pingdirectory  \
-    --set "client-secret:AACv+2Hg93qb2YQTg5rwwXj9EaVLKHlujcM=" \
-    --no-prompt
+// dsconfig create-access-token-validator \
+   // --validator-name PingFederate  \
+   // --type ping-federate  \
+   // --set subject-claim-name:Username  \
+   // --set enabled:true  \
+   // --set authorization-server:PingFederate  \
+   // --set client-id:pingdirectory  \
+   // --set "client-secret:AACv+2Hg93qb2YQTg5rwwXj9EaVLKHlujcM=" \
+   // --no-prompt
 
 // PingAccess for Credit Bureau APIs
 
