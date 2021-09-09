@@ -33,7 +33,6 @@ dsconfig set-policy-decision-service-prop \
 dsconfig create-external-server \
     --server-name PingFederate  \
     --type api  \
-    --set description:Token Validation  \
     --set base-url:https://${PF_ENGINE_PUBLIC_HOSTNAME}:${PF_ENGINE_PUBLIC_PORT_HTTPS}  \
     --set hostname-verification-method:allow-all \
     --no-prompt
@@ -53,7 +52,6 @@ dsconfig create-access-token-validator \
 dsconfig create-external-server \
     --server-name credit-bureau-http  \
     --type api  \
-    --set description:Sandbox instance of Credit Bureau APIs we will be protecting  \
     --set base-url:https://api.sandbox.equifax.com  \
     --set hostname-verification-method:allow-all \
     --no-prompt
