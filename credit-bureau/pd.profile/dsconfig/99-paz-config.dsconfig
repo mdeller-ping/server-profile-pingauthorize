@@ -52,7 +52,7 @@ dsconfig create-access-token-validator \
 dsconfig create-external-server \
     --server-name credit-bureau-http  \
     --type api  \
-    --set base-url:https://${PA_ENGINE_PUBLIC_HOSTNAME}:${PA_ENGINE_PUBLIC_PORT_HTTPS}  \
+    --set base-url:https://api.sandbox.equifax.com  \
     --set hostname-verification-method:allow-all \
     --no-prompt
 
@@ -60,7 +60,7 @@ dsconfig create-gateway-api-endpoint \
     --endpoint-name credit-report-api  \
     --set access-token-validator:PingFederate  \
     --set inbound-base-path:/credit-report  \
-    --set outbound-base-path:/api/credit-report/?  \
+    --set outbound-base-path:/business/consumer-credit/v1/reports/credit-report  \
     --set api-server:credit-bureau-http  \
     --no-prompt
 
