@@ -12,5 +12,6 @@ dsconfig set-web-application-extension-prop \
 dsconfig set-log-publisher-prop \
     --publisher-name "File-Based Trace Logger"  \
     --add exclude-path-pattern:/available-or-degraded-state \
+    --add exclude-path-pattern:/available-state \
     --no-prompt
 
