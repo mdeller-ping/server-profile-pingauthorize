@@ -28,17 +28,3 @@ dsconfig set-policy-decision-service-prop \
     --set trust-framework-version:v2  \
     --no-prompt
 
-dsconfig create-external-server \
-    --server-name httpbin-http  \
-    --type api  \
-    --set base-url:https://httpbin.org  \
-    --set hostname-verification-method:allow-all  \
-    --set "trust-manager-provider:Blind Trust" \
-    --no-prompt
-
-dsconfig create-gateway-api-endpoint \
-    --endpoint-name httpbin-api  \
-    --set inbound-base-path:/httpbin  \
-    --set outbound-base-path:/  \
-    --set api-server:httpbin-http  \
-    --no-prompt
