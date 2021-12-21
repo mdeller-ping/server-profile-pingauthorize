@@ -1,5 +1,0 @@
-dsconfig set-web-application-extension-prop \
-    --extension-name Console  \
-    --set trust-store-file:config/truststore  \
-    --set trust-store-type:JKS \
-    --no-prompt
